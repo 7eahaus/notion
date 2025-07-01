@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome Card</title>
+  <style>
+    body {
+      background-color: #ffffff00;
+    }
+    h1 {
+      margin: 0;
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      color: #b1eca6;
+      padding-top: .5rem;
+    }
+    h2 {
+      margin: 0;
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: #7c9b4f;
+    }
+    h3 {
+      margin: 0;
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: #7c9b4f;
+    }
+    .full-table {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
+    .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .card {
+      border-radius: 25px;
+      background: #3A4B1E;
+      color: #b1eca6;
+      display: inline-block;
+      padding: 0 2rem 0 2rem;
+      font-family: 'Caveat', cursive;
+}
+    .countup-timer {
+      display: inline-block;
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: #7c9b4f;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="full-table">
+  <div class="table-cell">
+    <div class="card">
+      <h1>
+        <script>
+          function getGreeting() {
+            var today = new Date();
+            var hour = today.getHours();
+
+            if (hour < 12) {
+              greet = 'Good Morning';
+            } else if (hour >= 12 && hour <= 18) {
+              greet = 'Good Afternoon';
+            } else if (hour >= 18 && hour <= 24) {
+              greet = 'Good Evening';
+            }
+          }
+          getGreeting();
+          document.write(greet);
+        </script>
+      </h1>
+      <h2>We Have Persevered For</h2>
+      <h3 class="countup-timer">0 days 0 hours 0 mins 0 seconds</h3>
+      <script>
+let startingDate = new Date('July 16, 1998 07:16:00').getTime();
+let counter = document.querySelector('.countup-timer');
+
+setInterval(function() {
+    let newDate = new Date().getTime();
+    let finalDate = newDate - startingDate;
+
+    let days = Math.floor(finalDate / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((finalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((finalDate % (1000 * 60 *60)) / (1000 * 60));
+    let seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
+
+    counter.innerHTML = days+" days "+hours+" hours "+minutes+" mins "+seconds+" seconds";
+}, 1000)
+</script>
+    </div>
+  </div>
+</div>
+</body>
+</html>
